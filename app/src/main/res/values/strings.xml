@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">GetherParams</string>
+    <string name="network_exception">network exception</string>
+</resources>
