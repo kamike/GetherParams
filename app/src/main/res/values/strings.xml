@@ -4,4 +4,8 @@
     <string name="carrieroperator">运营商</string>
     <string name="mccmnc">MCCMNC</string>
     <string name="local_lac">位置区(TAC/LAC)</string>
+    <string name="enb_rnc">eNb/RNC</string>
+    <string name="cid_cid_bid">扇区(CID/BID)</string>
+    <string name="arfcn">ARFCN</string>
+    <string name="pci_psc">扰码(PCI/PSC)</string>
 </resources>
