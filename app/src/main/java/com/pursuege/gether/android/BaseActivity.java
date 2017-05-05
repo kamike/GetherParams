@@ -224,7 +224,7 @@ public abstract class BaseActivity extends Activity {
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            int color = Color.YELLOW;
+            int color = getResources().getColor(R.color.color_them);
             ViewGroup contentView = (ViewGroup) findViewById(android.R.id.content);
             View statusBarView = new View(this);
             ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -305,7 +305,7 @@ public abstract class BaseActivity extends Activity {
     }
 
     /**
-     * 使状态栏透明 * <p> * 适用于图片作为背景的界面,此时需要图片填充到状态栏 * * @param activity 需要设置的activity
+     * 使状态栏透明 适用于图片作为背景的界面,此时需要图片填充到状态栏
      */
     public static void setTranslucent(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {

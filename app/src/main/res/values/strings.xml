@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">GetherParams</string>
     <string name="network_exception">network exception</string>
+    <string name="carrieroperator">运营商</string>
+    <string name="mccmnc">MCCMNC</string>
+    <string name="local_lac">位置区(TAC/LAC)</string>
 </resources>
