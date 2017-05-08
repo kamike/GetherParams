@@ -13,9 +13,14 @@
         <item name="android:textSize">@dimen/size_txt_normal</item>
         <item name="android:gravity">left|center_vertical</item>
         <item name="android:singleLine">true</item>
-
-
     </style>
+
+    <style name="txt_normal_hint_small">
+        <item name="android:textColor">@color/color_text_hint</item>
+        <item name="android:textSize">@dimen/size_txt_small</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
     <style name="txt_normal">
         <item name="android:textColor">@color/color_text_normal</item>
         <item name="android:textSize">@dimen/size_txt_normal</item>

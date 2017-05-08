@@ -8,4 +8,9 @@
     <string name="cid_cid_bid">扇区(CID/BID)</string>
     <string name="arfcn">ARFCN</string>
     <string name="pci_psc">扰码(PCI/PSC)</string>
+    <string name="mobile">移动</string>
+    <string name="task">作业</string>
+    <string name="road_test">路测</string>
+    <string name="system_info">系统信息</string>
+    <string name="log">LOG</string>
 </resources>
