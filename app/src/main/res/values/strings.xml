@@ -13,4 +13,5 @@
     <string name="road_test">路测</string>
     <string name="system_info">系统信息</string>
     <string name="log">LOG</string>
+    <string name="setting">设置</string>
 </resources>

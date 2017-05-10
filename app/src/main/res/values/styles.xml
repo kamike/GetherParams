@@ -28,4 +28,11 @@
 
     </style>
 
+    <style name="txt_title_white">
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:textSize">@dimen/size_txt_title</item>
+        <item name="android:gravity">left|center_vertical</item>
+
+    </style>
+
 </resources>

@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.pursuege.gether.android.BaseActivity;
 import com.pursuege.gether.android.R;
+import com.pursuege.gether.android.ui.setting.SettingActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -193,5 +194,9 @@ public class MainActivity extends BaseActivity {
                  break;
                                  
           }
+    }
+
+    public void onclickHomeSetting(View view) {
+        doStartOter(SettingActivity.class);
     }
 }

@@ -71,6 +71,8 @@
         android:layout_alignParentRight="true"
         android:gravity="center_vertical"
         android:padding="8dp"
+        android:clickable="true"
+        android:onClick="onclickHomeSetting"
         android:src="@drawable/icon_home_setting" />
 
     <ScrollView

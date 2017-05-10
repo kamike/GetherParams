@@ -18,6 +18,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.orhanobut.logger.Logger;
@@ -82,8 +85,6 @@ public abstract class BaseActivity extends Activity {
             sharePreferenceAll = getSharedPreferences("all_setting", Context.MODE_PRIVATE);
         }
     }
-
-
 
 
     public abstract void initShowLayout();
@@ -331,7 +332,6 @@ public abstract class BaseActivity extends Activity {
     }
 
 
-
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onServerCodeException(BaseServerObj serverObj) {
         doDissmissProgress();
@@ -365,7 +365,21 @@ public abstract class BaseActivity extends Activity {
         }
     }
 
-
+    public void dosSettitle(int title) {
+        RelativeLayout relative = (RelativeLayout) findViewById(R.id.include_relative_back);
+        if (relative == null) {
+            return;
+        }
+        ImageView ivBack = (ImageView) relative.findViewById(R.id.back_iv);
+        TextView tvTitle = (TextView) relative.findViewById(R.id.back_title_tv);
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        tvTitle.setText(title);
+    }
 
 
 }
