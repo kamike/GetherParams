@@ -42,7 +42,5 @@ public class SettingActivity extends BaseActivity {
 
     private class TestBean {
         public String name;
-
-
     }
 }
