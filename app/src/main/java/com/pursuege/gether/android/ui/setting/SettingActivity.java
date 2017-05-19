@@ -5,6 +5,7 @@ import android.widget.ListView;
 
 import com.pursuege.gether.android.BaseActivity;
 import com.pursuege.gether.android.R;
+import com.pursuege.gether.android.view.NetworkProgress;
 import com.zhy.adapter.abslistview.CommonAdapter;
 import com.zhy.adapter.abslistview.ViewHolder;
 
@@ -17,6 +18,9 @@ public class SettingActivity extends BaseActivity {
     public void initShowLayout() {
         setContentView(R.layout.activity_setting);
         dosSettitle(R.string.setting);
+
+
+
     }
 
     @Override
@@ -38,6 +42,8 @@ public class SettingActivity extends BaseActivity {
                 viewHolder.setText(R.id.vite_item_context, list.get(position).name);
             }
         });
+
+        new NetworkProgress(this);
     }
 
     private class TestBean {
