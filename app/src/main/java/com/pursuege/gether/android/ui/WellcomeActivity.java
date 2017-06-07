@@ -10,6 +10,7 @@ public class WellcomeActivity extends BaseActivity {
     public void initShowLayout() {
         setContentView(R.layout.activity_wellcome);
         doStartOter(MainActivity.class);
+        finish();
     }
 
     @Override

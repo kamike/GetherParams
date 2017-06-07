@@ -1,13 +1,1256 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="none"
     tools:context="com.pursuege.gether.android.ui.system.SystemInfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_system_phone" />
+
+            <TextView
+
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/phone_info" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/brand_modle" />
+
+            <TextView
+                android:id="@+id/system_info_brand_modle_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_number" />
+
+            <TextView
+                style="@style/txt_normal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+
+
+            <TextView
+                android:id="@+id/system_info_main_number_tv"
+                style="@style/txt_normal_hint"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line"
+
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/imsi" />
+
+            <TextView
+                android:id="@+id/system_info_imsi_main_tv"
+                style="@style/txt_normal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+
+
+            <TextView
+                android:id="@+id/system_info_imsi_ancillary_tv"
+                style="@style/txt_normal_hint"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/imei" />
+
+            <TextView
+                android:id="@+id/system_info_imei_main_tv"
+                style="@style/txt_normal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+
+
+            <TextView
+                android:id="@+id/system_info_imei_ancillary_tv"
+                style="@style/txt_normal_hint"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_system_android" />
+
+            <TextView
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/phone_info" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/android_version" />
+
+            <TextView
+                android:id="@+id/system_info_android_version_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/is_root" />
+
+            <TextView
+                android:id="@+id/system_info_is_root_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/screen_size" />
+
+            <TextView
+                android:id="@+id/system_info_screen_size_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/screen_density" />
+
+            <TextView
+                android:id="@+id/system_info_screen_density_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/system_run_time" />
+
+            <TextView
+                android:id="@+id/system_info_run_time_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gsm_up_down" />
+
+            <TextView
+                android:id="@+id/system_info_gsm_up_down_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wifi_up_down" />
+
+            <TextView
+                android:id="@+id/system_info_wifi_up_down_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_system_cpu" />
+
+            <TextView
+
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/cup" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/modle" />
+
+            <TextView
+                android:id="@+id/system_info_cup_modle_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cup_number" />
+
+            <TextView
+                android:id="@+id/system_info_cpu_number_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_frequency_mhz" />
+
+            <TextView
+                android:id="@+id/system_info_main_frequency_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fabrication_process" />
+
+            <TextView
+                android:id="@+id/system_info_fabrication_process_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/base_band" />
+
+            <TextView
+                android:id="@+id/system_info_base_band_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/support" />
+
+            <TextView
+                android:id="@+id/system_info_cpu_support_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_system_ram" />
+
+            <TextView
+
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/store_info" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/run_ram_volume" />
+
+            <TextView
+                android:id="@+id/system_info_run_ram_volume_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/current_ram_overplus" />
+
+            <TextView
+                android:id="@+id/system_info_current_ram_overplus_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phone_rom" />
+
+            <TextView
+                android:id="@+id/system_info_phone_rom_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sdcard" />
+
+            <TextView
+                android:id="@+id/system_info_sdcard_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_system_photo_system" />
+
+            <TextView
+
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/photo_system" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/behind_camera_pix" />
+
+            <TextView
+                android:id="@+id/system_info_behind_camera_pix_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/behind_camera_ratio" />
+
+            <TextView
+                android:id="@+id/system_info_behind_camera_ratio_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forward_camera_pix" />
+
+            <TextView
+                android:id="@+id/system_info_forward_camera_pix_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forword_camera_ratio" />
+
+            <TextView
+                android:id="@+id/system_info_forword_camera_ratio_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gpu" />
+
+            <TextView
+                android:id="@+id/system_info_gpu_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_system_wifi_info" />
+
+            <TextView
+
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/wifi_info" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wifi_connect" />
+
+            <TextView
+                android:id="@+id/system_info_wifi_connect_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mac_address" />
+
+            <TextView
+                android:id="@+id/system_info_mac_address_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wifi_connect_speed" />
+
+            <TextView
+                android:id="@+id/system_info_wifi_connect_speed_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/inside_ip" />
+
+            <TextView
+                android:id="@+id/system_info_inside_ip_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exterior_ip" />
+
+            <TextView
+                android:id="@+id/system_info_exterior_ip_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_system_battery" />
+
+            <TextView
+
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/battery_info" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/battery_volume" />
+
+            <TextView
+                android:id="@+id/system_info_battery_volume_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/voltage" />
+
+            <TextView
+                android:id="@+id/system_info_battery_voltage_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/current_electricity" />
+
+            <TextView
+                android:id="@+id/system_info_current_electricity_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/current_temperature" />
+
+            <TextView
+                android:id="@+id/system_info_current_temperature_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/between_line_height"
+            android:background="@color/color_between_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/padding_left_right"
+            android:paddingRight="@dimen/padding_left_right"
+            android:paddingTop="8dp">
+
+            <TextView
+                style="@style/txt_normal_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rechange_status" />
+
+            <TextView
+                android:id="@+id/system_info_rechange_status_tv"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:text="@string/test_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="72dp" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -6,4 +6,5 @@
     <dimen name="size_txt_small">12.5sp</dimen>
     <dimen name="size_txt_title">15sp</dimen>
     <dimen name="padding_left_right">7dp</dimen>
+    <dimen name="between_line_height" >2px</dimen>
 </resources>

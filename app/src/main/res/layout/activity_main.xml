@@ -14,12 +14,13 @@
         android:background="@color/color_them" />
 
     <HorizontalScrollView
+
+        android:id="@+id/main_horizontal_icon_scroll"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:gravity="center_vertical"
         android:paddingRight="48dp"
-        android:scrollbars="none"
-        android:id="@+id/horizontalScrollView">
+        android:scrollbars="none">
 
 
         <LinearLayout
@@ -67,21 +68,31 @@
     </HorizontalScrollView>
 
     <ImageView
+        android:id="@+id/main_setting_iv"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_alignParentRight="true"
-        android:gravity="center_vertical"
-        android:padding="8dp"
         android:clickable="true"
+        android:gravity="center_vertical"
         android:onClick="onclickHomeSetting"
+        android:padding="8dp"
         android:src="@drawable/icon_home_setting" />
+
+    <TextView
+        android:id="@+id/main_fragment_title_tv"
+        style="@style/txt_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/color_them"
+        android:gravity="center" />
 
     <FrameLayout
         android:id="@+id/main_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="58dp"
-        />
+        android:background="@color/color_back_ground"
+        android:layout_marginTop="48dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -96,8 +107,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:clickable="true"
-            android:onClick="onclickHomeMobile"
             android:gravity="center_horizontal"
+            android:onClick="onclickHomeMobile"
             android:orientation="vertical">
 
 
@@ -120,8 +131,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_horizontal"
             android:clickable="true"
+            android:gravity="center_horizontal"
             android:onClick="onclickHomeTask"
             android:orientation="vertical">
 
@@ -144,8 +155,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_horizontal"
             android:clickable="true"
+            android:gravity="center_horizontal"
             android:onClick="onclickHomeTest"
             android:orientation="vertical">
 
@@ -168,8 +179,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_horizontal"
             android:clickable="true"
+            android:gravity="center_horizontal"
             android:onClick="onclickHomeSystemInfo"
             android:orientation="vertical">
 
@@ -192,8 +203,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_horizontal"
             android:clickable="true"
+            android:gravity="center_horizontal"
             android:onClick="onclickHomeLog"
             android:orientation="vertical">
 

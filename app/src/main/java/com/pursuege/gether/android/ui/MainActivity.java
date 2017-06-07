@@ -2,8 +2,8 @@ package com.pursuege.gether.android.ui;
 
 import android.app.FragmentTransaction;
 import android.view.View;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.pursuege.gether.android.BaseActivity;
@@ -16,8 +16,10 @@ import com.pursuege.gether.android.ui.task.TaskFragment;
 import com.pursuege.gether.android.ui.test.TestRoadFragment;
 
 public class MainActivity extends BaseActivity {
+    private HorizontalScrollView hsTopIcon;
+    private ImageView ivSetting;
+    private TextView tvFrgamentTitle;
 
-    private LinearLayout mMainParamsLinear;
     private ImageView mHomeMobileIv;
     private TextView mHomeMobileTv;
     private ImageView mHomeTaskIv;
@@ -49,7 +51,6 @@ public class MainActivity extends BaseActivity {
 
 
     private void assignViews() {
-        mMainParamsLinear = (LinearLayout) findViewById(R.id.main_params_linear);
         mHomeMobileIv = (ImageView) findViewById(R.id.home_mobile_iv);
         mHomeMobileTv = (TextView) findViewById(R.id.home_mobile_tv);
         mHomeTaskIv = (ImageView) findViewById(R.id.home_task_iv);
@@ -60,6 +61,9 @@ public class MainActivity extends BaseActivity {
         mHomeSystemInfoTv = (TextView) findViewById(R.id.home_system_info_tv);
         mHomeLogIv = (ImageView) findViewById(R.id.home_log_iv);
         mHomeLogTv = (TextView) findViewById(R.id.home_log_tv);
+        hsTopIcon= (HorizontalScrollView) findViewById(R.id.main_horizontal_icon_scroll);
+        ivSetting= (ImageView) findViewById(R.id.main_setting_iv);
+        tvFrgamentTitle= (TextView) findViewById(R.id.main_fragment_title_tv);
     }
 
 
@@ -108,6 +112,9 @@ public class MainActivity extends BaseActivity {
 
     private void setHomeIndex(int index) {
         FragmentTransaction trans = getFragmentManager().beginTransaction();
+        hsTopIcon.setVisibility(View.GONE);
+        ivSetting.setVisibility(View.GONE);
+        tvFrgamentTitle.setVisibility(View.VISIBLE);
         switch (index) {
             case 1:
                 mHomeMobileTv.setTextColor(colorBule);
@@ -123,6 +130,10 @@ public class MainActivity extends BaseActivity {
                 mHomeLogIv.setImageResource(R.drawable.icon_home_log);
 
                 trans.replace(R.id.main_fragment, fragmentMobile);
+                hsTopIcon.setVisibility(View.VISIBLE);
+                ivSetting.setVisibility(View.VISIBLE);
+                tvFrgamentTitle.setVisibility(View.GONE);
+
                 break;
             case 2:
                 mHomeMobileTv.setTextColor(colorHint);
@@ -138,6 +149,7 @@ public class MainActivity extends BaseActivity {
                 mHomeLogIv.setImageResource(R.drawable.icon_home_log);
 
                 trans.replace(R.id.main_fragment, fragmentTask);
+                tvFrgamentTitle.setText(R.string.task);
                 break;
             case 3:
                 mHomeMobileTv.setTextColor(colorHint);
@@ -153,6 +165,7 @@ public class MainActivity extends BaseActivity {
                 mHomeLogIv.setImageResource(R.drawable.icon_home_log);
 
                 trans.replace(R.id.main_fragment, fragmentTestRoad);
+                tvFrgamentTitle.setText(R.string.road_test);
                 break;
             case 4:
                 mHomeMobileTv.setTextColor(colorHint);
@@ -168,6 +181,7 @@ public class MainActivity extends BaseActivity {
                 mHomeLogIv.setImageResource(R.drawable.icon_home_log);
 
                 trans.replace(R.id.main_fragment, fragmentSystemInfo);
+                tvFrgamentTitle.setText(R.string.system_info);
                 break;
             case 5:
                 mHomeMobileTv.setTextColor(colorHint);
@@ -183,6 +197,7 @@ public class MainActivity extends BaseActivity {
                 mHomeLogIv.setImageResource(R.drawable.icon_home_log_press);
 
                 trans.replace(R.id.main_fragment, fragmentLog);
+                tvFrgamentTitle.setText(R.string.log);
                 break;
 
         }
