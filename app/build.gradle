@@ -30,15 +30,15 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    testCompile 'junit:junit:4.12'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
 
+    compile project(path: ':base-adapter-library')
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.alibaba:fastjson:1.2.5'
     compile 'com.orhanobut:logger:1.15'
     compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.android.support:support-v4:24.2.1'
+    testCompile 'junit:junit:4.12'
     apt 'org.greenrobot:eventbus-annotation-processor:3.0.1'
-    compile project(path: ':base-adapter-library')
 }
-repositories {
-    mavenCentral() // jcenter() works as well because it pulls from Maven Central
-}
+

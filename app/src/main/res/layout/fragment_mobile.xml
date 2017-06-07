@@ -1,0 +1,37 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.pursuege.gether.android.ui.mobile.MobileFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_back_ground"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/color_them_deep" />
+
+            <LinearLayout
+                android:id="@+id/main_params_linear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_back_ground"
+                android:orientation="vertical" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

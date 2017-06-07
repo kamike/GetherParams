@@ -18,20 +18,15 @@ public class SettingActivity extends BaseActivity {
     public void initShowLayout() {
         setContentView(R.layout.activity_setting);
         dosSettitle(R.string.setting);
-
-
-
     }
 
     @Override
     public void setAllData() {
         final ArrayList<TestBean> list = new ArrayList<>();
-
         for (int i = 0; i < 50; i++) {
             TestBean test = new TestBean();
             test.name = "Name " + i;
             list.add(test);
-
         }
 
         ListView listView = (ListView) findViewById(R.id.setting_list_view);
@@ -42,11 +37,12 @@ public class SettingActivity extends BaseActivity {
                 viewHolder.setText(R.id.vite_item_context, list.get(position).name);
             }
         });
-
         new NetworkProgress(this);
     }
 
     private class TestBean {
         public String name;
     }
+
+
 }

@@ -19,7 +19,8 @@ public class AssetsIOperate {
     public ArrayList getAssetsData(Context c,String fileName,Class classBean){
         try {
             InputStream in=c.getAssets().open(fileName);
-            BufferedReader reader=new BufferedReader(new InputStreamReader(in));
+            BufferedReader reader=new BufferedReader(new InputStreamReader(in)
+            );
             String str=null;
             StringBuilder sb=new StringBuilder();
             while((str=reader.readLine())!=null){
