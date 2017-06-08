@@ -11,12 +11,18 @@ import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.pursuege.gether.android.BaseActivity;
 import com.pursuege.gether.android.R;
+import com.pursuege.gether.android.ui.view.BlueProgressView;
 import com.pursuege.gether.android.utils.PhoneInfoUtils;
 import com.pursuege.gether.android.utils.TimeFormatUtils;
+
+import java.util.HashMap;
+
+import static com.pursuege.gether.android.utils.PhoneInfoUtils.getMemInfo;
 
 
 public class SystemInfoFragment extends Fragment {
@@ -41,8 +47,8 @@ public class SystemInfoFragment extends Fragment {
     private TextView tvCpuSupport;
     private TextView tvRunRamVolume;
     private TextView tvCurrentRamOverplus;
-    private TextView tvPhoneRom;
-    private TextView tvSdcard;
+    private BlueProgressView tvPhoneRom;
+    private BlueProgressView tvSdcard;
     private TextView tvBehindCameraPix;
     private TextView tvBehindCameraRatio;
     private TextView tvForwardCameraPix;
@@ -81,8 +87,8 @@ public class SystemInfoFragment extends Fragment {
         tvCpuSupport = (TextView) v.findViewById(R.id.system_info_cpu_support_tv);
         tvRunRamVolume = (TextView) v.findViewById(R.id.system_info_run_ram_volume_tv);
         tvCurrentRamOverplus = (TextView) v.findViewById(R.id.system_info_current_ram_overplus_tv);
-        tvPhoneRom = (TextView) v.findViewById(R.id.system_info_phone_rom_tv);
-        tvSdcard = (TextView) v.findViewById(R.id.system_info_sdcard_tv);
+        tvPhoneRom = (BlueProgressView) v.findViewById(R.id.system_info_phone_rom_view);
+        tvSdcard = (BlueProgressView) v.findViewById(R.id.system_info_sdcard_view);
         tvBehindCameraPix = (TextView) v.findViewById(R.id.system_info_behind_camera_pix_tv);
         tvBehindCameraRatio = (TextView) v.findViewById(R.id.system_info_behind_camera_ratio_tv);
         tvForwardCameraPix = (TextView) v.findViewById(R.id.system_info_forward_camera_pix_tv);
@@ -98,28 +104,41 @@ public class SystemInfoFragment extends Fragment {
         tvCurrentElectricity = (TextView) v.findViewById(R.id.system_info_current_electricity_tv);
         tvCurrentTemperature = (TextView) v.findViewById(R.id.system_info_current_temperature_tv);
         tvRechangeStatus = (TextView) v.findViewById(R.id.system_info_rechange_status_tv);
+        LinearLayout.LayoutParams params= (LinearLayout.LayoutParams) tvPhoneRom.getLayoutParams();
+        params.width= (int) (BaseActivity.screenWidth*0.65f);
+        tvPhoneRom.setLayoutParams(params);
+        LinearLayout.LayoutParams params2= (LinearLayout.LayoutParams) tvSdcard.getLayoutParams();
+        params2.width= (int) (BaseActivity.screenWidth*0.65f);
+        tvSdcard.setLayoutParams(params2);
     }
 
     private Context context;
-
+    private View rootView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         context = getActivity();
-        View v = inflater.inflate(R.layout.fragment_system_info, container, false);
-        assignViews(v);
-        initAllData();
-        return v;
+        if (null != rootView) {
+            ViewGroup parent = (ViewGroup) rootView.getParent();
+            if (null != parent) {
+                parent.removeView(rootView);
+            }
+        } else {
+            rootView = inflater.inflate(R.layout.fragment_system_info, container, false);
+            assignViews(rootView);
+            initAllData();
+        }
+        return rootView;
     }
 
     private void initAllData() {
+        phoneInfo = new PhoneInfoUtils(getActivity().getApplication());
         getFixParams();
-
         handlerDelete.sendEmptyMessage(0);
     }
-
+    private PhoneInfoUtils phoneInfo;
     private void getFixParams() {
-        PhoneInfoUtils phoneInfo = new PhoneInfoUtils(getActivity().getApplication());
+
 
         tvBrandModle.setText(android.os.Build.MODEL);
         tvMainNumber.setText(phoneInfo.getMainNumber());
@@ -131,13 +150,21 @@ public class SystemInfoFragment extends Fragment {
         tvIsRoot.setText(PhoneInfoUtils.isRoot() ? "是" : "否");
 
         tvScreenSize.setText(BaseActivity.screenWidth + "x" + BaseActivity.screenHeight);
-        tvScreenDensity.setText(getResources().getDisplayMetrics().densityDpi + "Dpi");
+        tvScreenDensity.setText(getResources().getDisplayMetrics().densityDpi + "dpi");
         tvMainFrequency.setText(TimeFormatUtils.getGMKHZ(PhoneInfoUtils.getMaxCpuFreq()));
-        tvCupModle.setText(PhoneInfoUtils.getCpuName());
 
-        PhoneInfoUtils.getCupInfo();
+        HashMap<String, String> cupInfo= getMemInfo();
+        tvRunRamVolume.setText(TimeFormatUtils.getGMKBForKb(cupInfo.get("MemTotal")));
 
+        tvPhoneRom.setCurrentProgress(0.1f);
+        tvSdcard.setCurrentProgress(1- PhoneInfoUtils.getSDAvailableSize()*1.0f/PhoneInfoUtils.getSDTotalSize());
 
+        HashMap<String, String> hashCpu = PhoneInfoUtils.getCpuInfo();
+        System.out.println(hashCpu);
+        tvCupModle.setText(hashCpu.get("Hardware"));
+        tvBaseBand.setText(PhoneInfoUtils.getBaseband_Ver());
+        tvCpuNumber.setText(PhoneInfoUtils.getCpuNumCores()+"核心");
+        tvCpuSupport.setText(hashCpu.get("Processor"));
     }
 
     private Handler handlerDelete = new Handler() {
@@ -157,6 +184,10 @@ public class SystemInfoFragment extends Fragment {
                 TimeFormatUtils.getGMKB(TrafficStats.getMobileRxBytes()));
         tvWifiUpDown.setText(TimeFormatUtils.getGMKB(TrafficStats.getTotalTxBytes()-TrafficStats.getMobileTxBytes()) + "/" +
                 TimeFormatUtils.getGMKB(TrafficStats.getTotalRxBytes()-TrafficStats.getMobileRxBytes()));
+
+//        HashMap<String, String> cupInfo= PhoneInfoUtils.getCupInfo();
+
+        tvCurrentRamOverplus.setText(TimeFormatUtils.getGMKB(phoneInfo.getAvailMemory()));
     }
 
 

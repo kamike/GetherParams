@@ -25,12 +25,11 @@ public class TimeFormatUtils {
         if (hour > 0) {
             sb.append(hour + "小时");
         }
-        if (minute > 0) {
-            sb.append(minute + "分钟");
-        }
-        if (second > 0) {
-            sb.append(second + "秒");
-        }
+
+        sb.append(minute + "分钟");
+
+
+        sb.append(second + "秒");
 //        if(milliSecond > 0) {
 //            sb.append(milliSecond+"毫秒");
 //        }
@@ -55,6 +54,7 @@ public class TimeFormatUtils {
         return mobileRxBytes + "B";
 
     }
+
     public static String getGMKHZ(long hz) {
         DecimalFormat format = new java.text.DecimalFormat("#.00");
         if (hz > GB) {
@@ -68,5 +68,25 @@ public class TimeFormatUtils {
         }
         return hz + "Hz";
 
+    }
+
+    public static String getGMKBForKb(String memFree) {
+        long kb=0;
+        try {
+            kb= Long.parseLong(memFree);
+
+        }catch (NumberFormatException e){
+
+        }
+
+        DecimalFormat format = new java.text.DecimalFormat("#.00");
+        if (kb > MB) {
+            return format.format(kb * 1.0 / MB) + "GB";
+        }
+        if (kb > kb) {
+            return format.format(kb * 1.0 / kb) + "MB";
+        }
+
+        return kb+"KB";
     }
 }

@@ -697,21 +697,25 @@
             android:paddingBottom="8dp"
             android:paddingLeft="@dimen/padding_left_right"
             android:paddingRight="@dimen/padding_left_right"
+            android:gravity="center_vertical"
             android:paddingTop="8dp">
 
             <TextView
                 style="@style/txt_normal_hint"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/phone_rom" />
 
-            <TextView
-                android:id="@+id/system_info_phone_rom_tv"
+            <com.pursuege.gether.android.ui.view.BlueProgressView
+                android:id="@+id/system_info_phone_rom_view"
                 style="@style/txt_normal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_gravity="center_vertical"
                 android:gravity="center_vertical|right"
-                android:text="@string/test_txt" />
+                />
         </LinearLayout>
 
         <View
@@ -731,17 +735,21 @@
 
             <TextView
                 style="@style/txt_normal_hint"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/sdcard" />
 
-            <TextView
-                android:id="@+id/system_info_sdcard_tv"
+
+            <com.pursuege.gether.android.ui.view.BlueProgressView
+                android:id="@+id/system_info_sdcard_view"
                 style="@style/txt_normal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_gravity="center_vertical"
                 android:gravity="center_vertical|right"
-                android:text="@string/test_txt" />
+                />
         </LinearLayout>
 
 
