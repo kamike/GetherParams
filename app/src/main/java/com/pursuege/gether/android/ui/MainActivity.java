@@ -1,6 +1,7 @@
 package com.pursuege.gether.android.ui;
 
 import android.app.FragmentTransaction;
+import android.graphics.PixelFormat;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
@@ -41,10 +42,10 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initShowLayout() {
+        getWindow().setFormat(PixelFormat.TRANSLUCENT);
         setContentView(R.layout.activity_main);
         doSetStatusBars();
         setTranslucent(this);
-
         assignViews();
 
     }

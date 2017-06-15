@@ -62,4 +62,9 @@
     <string name="current_electricity">当前电量</string>
     <string name="current_temperature">当前温度</string>
     <string name="rechange_status">充电状态</string>
+    <string name="permission_camera_rationale">请求相机权限</string>
+    <string name="button_allow">允许</string>
+    <string name="button_deny">拒绝</string>
+    <string name="permission_camera_denied">权限被通过</string>
+    <string name="permission_camera_neverask">权限被拒绝了</string>
 </resources>

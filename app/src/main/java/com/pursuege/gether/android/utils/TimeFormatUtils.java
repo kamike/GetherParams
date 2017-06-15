@@ -1,5 +1,7 @@
 package com.pursuege.gether.android.utils;
 
+import android.os.BatteryManager;
+
 import java.text.DecimalFormat;
 
 /**
@@ -71,11 +73,11 @@ public class TimeFormatUtils {
     }
 
     public static String getGMKBForKb(String memFree) {
-        long kb=0;
+        long kb = 0;
         try {
-            kb= Long.parseLong(memFree);
+            kb = Long.parseLong(memFree);
 
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
 
         }
 
@@ -87,6 +89,36 @@ public class TimeFormatUtils {
             return format.format(kb * 1.0 / kb) + "MB";
         }
 
-        return kb+"KB";
+        return kb + "KB";
+    }
+
+    public static String getPixString(int[] back) {
+        if (back == null || back.length <= 1) {
+            return "0像素";
+        }
+        int size = back[0] * back[1] / 10000;
+
+        return size + "万像素";
+    }
+
+    public static String intToIp(int ip) {
+        return (ip & 0xFF) + "." + ((ip >> 8) & 0xFF) + "." + ((ip >> 16) & 0xFF) + "."
+                + ((ip >> 24) & 0xFF);
+    }
+
+    public static String getBatteryStatus(int status) {
+        switch (status) {
+            case BatteryManager.BATTERY_STATUS_FULL:
+                return "充满状态";
+            case BatteryManager.BATTERY_STATUS_CHARGING://充电状态。
+                return "充电状态";
+            case BatteryManager.BATTERY_STATUS_DISCHARGING:
+                return "放电状态";
+            case BatteryManager.BATTERY_STATUS_NOT_CHARGING:
+                return "未充满状态";
+            default:
+                return "未知状态";
+
+        }
     }
 }
