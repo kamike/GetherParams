@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class AssetsIOperate {
 
-    public ArrayList getAssetsData(Context c,String fileName,Class classBean){
+    public static ArrayList getAssetsData(Context c,String fileName,Class classBean){
         try {
             InputStream in=c.getAssets().open(fileName);
             BufferedReader reader=new BufferedReader(new InputStreamReader(in)

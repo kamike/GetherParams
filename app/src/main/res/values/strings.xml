@@ -67,4 +67,12 @@
     <string name="button_deny">拒绝</string>
     <string name="permission_camera_denied">权限被通过</string>
     <string name="permission_camera_neverask">权限被拒绝了</string>
+    <string name="service_test">服务测试</string>
+    <string name="delay_test">延迟测试</string>
+    <string name="vioce_test">语音测试</string>
+    <string name="sms_test">短信测试</string>
+    <string name="stream_test">流媒体</string>
+    <string name="autio_test">音频测试</string>
+    <string name="last_test_time">上次测试时间</string>
+    <string name="run_this_test_allow_wifi_gprs">运行此测试讲使用WIFI或移动网络数据</string>
 </resources>
