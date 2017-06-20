@@ -49,5 +49,8 @@ public class AdapterViewpager extends PagerAdapter {
         return viewList.get(position);
     }
 
-
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return viewList.get(position).getTag()+"";
+    }
 }

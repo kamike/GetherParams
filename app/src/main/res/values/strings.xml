@@ -67,6 +67,14 @@
     <string name="button_deny">拒绝</string>
     <string name="permission_camera_denied">权限被通过</string>
     <string name="permission_camera_neverask">权限被拒绝了</string>
+    <string-array name="task_title_array">
+        <item>服务测试</item>
+        <item>延迟测试</item>
+        <item>语音测试</item>
+        <item>短信测试</item>
+        <item>流媒体</item>
+        <item>音频测试</item>
+    </string-array>
     <string name="service_test">服务测试</string>
     <string name="delay_test">延迟测试</string>
     <string name="vioce_test">语音测试</string>
@@ -78,5 +86,6 @@
     <string name="other_phone_number">对方号码</string>
     <string name="is_check_time">添加时间戳</string>
     <string name="answer_whate_do_you_do">请问你们需要干什么？</string>
+    <string name="run_service_test">运行服务测试</string>
     <integer name="phone_length">11</integer>
 </resources>

@@ -5,33 +5,31 @@
     android:background="@color/color_back_ground"
     android:orientation="vertical">
 
+
     <TextView
         android:id="@+id/task_item_last_time_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical|right"
+        android:paddingBottom="@dimen/padding_txt"
         android:paddingRight="@dimen/padding_left_right"
         android:paddingTop="@dimen/padding_txt"
-        android:paddingBottom="@dimen/padding_txt"
         android:text="@string/last_test_time" />
 
     <ListView
         android:id="@+id/task_item_content_listview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" />
-
-    <View
-        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_weight="3" />
+        android:layout_weight="15" />
+
+
 
     <Button
         android:id="@+id/task_item_start_btn"
+        style="@style/btn_blue_style"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_margin="42dp"
-        android:padding="@dimen/padding_left_right"
         android:text="@string/run_this_test_allow_wifi_gprs" />
 
     <View
@@ -39,3 +37,4 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 </LinearLayout>
+
