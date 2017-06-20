@@ -78,9 +78,10 @@ public class MainActivity extends BaseActivity {
         fragmentTask = new TaskFragment();
         fragmentTestRoad = new TestRoadFragment();
         fragmentMobile = new MobileFragment();
-        FragmentTransaction trans = getFragmentManager().beginTransaction();
-        trans.replace(R.id.main_fragment, fragmentMobile);
-        trans.commit();
+//        FragmentTransaction trans = getFragmentManager().beginTransaction();
+//        trans.replace(R.id.main_fragment, fragmentMobile);
+//        trans.commit();
+        setHomeIndex(1);
     }
 
 

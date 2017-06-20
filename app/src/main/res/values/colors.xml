@@ -12,5 +12,5 @@
     <color name="color_between_line">#E7E7E7</color>
     <color name="color_back_ground">#F2F2F2</color>
     <color name="color_white">#FFFF</color>
-    <color name="color_gray">#FFFF</color>
+    <color name="color_gray">#eee</color>
 </resources>

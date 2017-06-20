@@ -8,5 +8,6 @@ import android.view.View;
 
 class DelayTestView {
     public DelayTestView(View viewDelayTest) {
+
     }
 }

@@ -87,5 +87,14 @@
     <string name="is_check_time">添加时间戳</string>
     <string name="answer_whate_do_you_do">请问你们需要干什么？</string>
     <string name="run_service_test">运行服务测试</string>
+    <string name="dns">DNS</string>
+    <string name="help">帮助</string>
+    <string name="icon_show_setting">图标显示设置</string>
+    <string name="init">初始化</string>
+    <string name="feedback">反馈</string>
+    <string name="private_regulations">隐私条例</string>
+    <string name="about_me">关于我们</string>
+    <string name="update_online">在线更新</string>
+    <string name="share_to_friend">分享给朋友</string>
     <integer name="phone_length">11</integer>
 </resources>

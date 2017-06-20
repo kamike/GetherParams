@@ -1,15 +1,11 @@
 package com.pursuege.gether.android.ui.setting;
 
 
-import android.widget.ListView;
+import android.content.Intent;
+import android.view.View;
 
 import com.pursuege.gether.android.BaseActivity;
 import com.pursuege.gether.android.R;
-import com.pursuege.gether.android.view.NetworkProgress;
-import com.zhy.adapter.abslistview.CommonAdapter;
-import com.zhy.adapter.abslistview.ViewHolder;
-
-import java.util.ArrayList;
 
 public class SettingActivity extends BaseActivity {
 
@@ -22,27 +18,38 @@ public class SettingActivity extends BaseActivity {
 
     @Override
     public void setAllData() {
-        final ArrayList<TestBean> list = new ArrayList<>();
-        for (int i = 0; i < 50; i++) {
-            TestBean test = new TestBean();
-            test.name = "Name " + i;
-            list.add(test);
-        }
 
-        ListView listView = (ListView) findViewById(R.id.setting_list_view);
-        listView.setAdapter(new CommonAdapter<TestBean>(this, R.layout.view_item_adapter, list) {
-
-            @Override
-            protected void convert(ViewHolder viewHolder, TestBean item, int position) {
-                viewHolder.setText(R.id.vite_item_context, list.get(position).name);
-            }
-        });
-        new NetworkProgress(this);
-    }
-
-    private class TestBean {
-        public String name;
     }
 
 
+    public void onclickSettingHelp(View view) {
+    }
+
+    public void onclickSettingIconSetting(View view) {
+    }
+
+    public void onclickSettingInit(View view) {
+    }
+
+    public void onclickSettingFeedback(View view) {
+    }
+
+    public void onclickSettingUpdateOnline(View view) {
+    }
+
+    public void onclickSettingAboutMe(View view) {
+    }
+
+    public void onclickSettingprivate(View view) {
+    }
+
+    public void onclickSettingShareFriend(View view) {
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "分享的文字......");
+        shareIntent.setType("text/plain");
+
+        //设置分享列表的标题，并且每次都显示分享列表
+        startActivity(Intent.createChooser(shareIntent, "分享到"));
+    }
 }
