@@ -9,19 +9,29 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.orhanobut.logger.Logger;
 import com.pursuege.gether.android.R;
 import com.pursuege.gether.android.bean.ServiceIpBean;
 import com.pursuege.gether.android.ui.view.AdapterViewpager;
 import com.pursuege.gether.android.ui.view.BlueProgressView;
 import com.pursuege.gether.android.utils.AssetsIOperate;
 import com.pursuege.gether.android.utils.NetworkUtils;
+import com.pursuege.gether.android.utils.TimeFormatUtils;
 import com.zhy.adapter.abslistview.CommonAdapter;
 import com.zhy.adapter.abslistview.ViewHolder;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 
@@ -45,8 +55,9 @@ public class TaskFragment extends Fragment {
                 parent.removeView(rootView);
             }
         } else {
+            Logger.i("onCreateView===");
             rootView = inflater.inflate(R.layout.fragment_task, container, false);
-
+            EventBus.getDefault().register(this);
             initView();
             initAllData();
         }
@@ -64,12 +75,34 @@ public class TaskFragment extends Fragment {
         }
 
         arrayViews = new ArrayList<>();
+        //服务测试
         View viewService = LayoutInflater.from(context).inflate(R.layout.view_item_task_service, null);
         addServiceView(viewService);
+        //短信测试
+        View viewSms = LayoutInflater.from(context).inflate(R.layout.view_item_task_sms_test, null);
+
+        addSmsTestView(viewSms);
+
         arrayViews.add(viewService);
+        arrayViews.add(viewSms);
         viewPager.setAdapter(new AdapterViewpager(arrayViews));
+
+        tableLayout.setupWithViewPager(viewPager);
+    }
+    private void initAllData() {
+        animLoading = AnimationUtils.loadAnimation(context, R.anim.rotate_return);
+
     }
 
+
+    private ArrayList<ServiceIpBean> listIp;
+    private CommonAdapter adapterServiceIp;
+
+    /**
+     * 服务测试
+     *
+     * @param viewService
+     */
     private void addServiceView(View viewService) {
         TextView tvLastTime = (TextView) viewService.findViewById(R.id.task_item_last_time_tv);
         tvLastTime.setText(context.getText(R.string.last_test_time) + "");
@@ -77,20 +110,39 @@ public class TaskFragment extends Fragment {
         Button btn = (Button) viewService.findViewById(R.id.task_item_start_btn);
 
 
-        ArrayList<ServiceIpBean> listIp = AssetsIOperate.getAssetsData(context, "ServiceIpList.json", ServiceIpBean.class);
-        final CommonAdapter adapterServiceIp = new CommonAdapter<ServiceIpBean>(context, R.layout.view_item_txt_progress_loading, listIp) {
-            @Override
-            protected void convert(ViewHolder viewHolder, ServiceIpBean item, int position) {
-                viewHolder.setText(R.id.test_progress_load_tv, item.ipName);
-                BlueProgressView blueProgressView = viewHolder.getView(R.id.test_progress_load_bp);
-                ImageView ivLoading = viewHolder.getView(R.id.test_progress_load_iv);
-            }
-        };
+        listIp = AssetsIOperate.getAssetsData(context, "ServiceIpList.json", ServiceIpBean.class);
+        adapterServiceIp =
+                new CommonAdapter<ServiceIpBean>(context, R.layout.view_item_txt_progress_loading, listIp) {
+                    @Override
+                    protected void convert(ViewHolder viewHolder, ServiceIpBean item, int position) {
+
+                        viewHolder.setText(R.id.test_progress_load_tv, item.ipName);
+                        BlueProgressView blueProgressView = viewHolder.getView(R.id.test_progress_load_bp);
+                        ImageView ivLoading = viewHolder.getView(R.id.test_progress_load_iv);
+
+                        blueProgressView.setCurrentProgress(TimeFormatUtils.getRadio(item.delayTime / item.maxDelay));
+                        if (item.isLoading) {
+                            ivLoading.startAnimation(animLoading);
+                        } else {
+                            ivLoading.clearAnimation();
+                        }
+
+                    }
+                };
         listViewContent.setAdapter(adapterServiceIp);
         if (NetworkUtils.isNetworkAvailable(context)) {
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //开始测试
+                    if (listIp == null || listIp.isEmpty()) {
+                        return;
+                    }
+                    urlIndex = 0;
+                    listIp.get(urlIndex).isLoading = true;
+
+                    NetworkUtils.doGetForUrlTime(listIp.get(urlIndex));
+
                     adapterServiceIp.notifyDataSetChanged();
                 }
             });
@@ -101,12 +153,51 @@ public class TaskFragment extends Fragment {
 
     }
 
-    private ArrayList<View> arrayViews;
+    public int urlIndex = 0;
 
-    private void initAllData() {
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void getUrlTime(ServiceIpBean time) {
+        listIp.get(urlIndex).isLoading = false;
+        if (time.delayTime != -1) {
+            listIp.get(urlIndex).delayTime = time.delayTime;
+        } else {
+            listIp.get(urlIndex).delayTime = listIp.get(urlIndex).maxDelay;
+        }
+        adapterServiceIp.notifyDataSetChanged();
+
+        urlIndex++;
+        if (urlIndex >= listIp.size()) {
+            return;
+        }
+        listIp.get(urlIndex).isLoading = true;
+        NetworkUtils.doGetForUrlTime(listIp.get(urlIndex));
+    }
+
+
+    private ArrayList<View> arrayViews;
+    private Animation animLoading;
+
+
+
+
+    /**
+     * 短信测试
+     *
+     * @param viewSms
+     */
+    private void addSmsTestView(View viewSms) {
+        TextView tvLastTime = (TextView) viewSms.findViewById(R.id.task_sms_item_last_time_tv);
+        EditText etOtherNumber = (EditText) viewSms.findViewById(R.id.task_sms_item_other_phone_et);
+        CheckBox checkTimePrint = (CheckBox) viewSms.findViewById(R.id.task_sms_item_time_check);
 
 
     }
 
-
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Logger.i("onDetach===");
+        EventBus.getDefault().unregister(this);
+    }
 }

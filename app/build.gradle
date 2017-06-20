@@ -45,5 +45,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     apt 'org.greenrobot:eventbus-annotation-processor:3.0.1'
     compile 'com.android.support:design:26.0.0-alpha1'
+    compile 'com.squareup.okhttp3:okhttp:3.8.1'
 }
 

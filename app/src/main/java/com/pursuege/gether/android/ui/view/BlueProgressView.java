@@ -62,7 +62,7 @@ public class BlueProgressView extends View {
 
 
     }
-    private float progress=0.5f;
+    private float progress=0f;
 
     public void setCurrentProgress(float progress){
         this.progress=progress;

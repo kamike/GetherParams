@@ -121,4 +121,19 @@ public class TimeFormatUtils {
 
         }
     }
+
+    /**
+     <20的100%
+     20~50ms  80%
+     50-100 60%
+     100-200 40%
+     200-500 20%
+     >500 0
+     * @param maxDelay
+     * @return
+     */
+    public static float getRadio(int maxDelay) {
+
+        return 0;
+    }
 }
