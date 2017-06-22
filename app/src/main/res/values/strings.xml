@@ -96,5 +96,8 @@
     <string name="about_me">关于我们</string>
     <string name="update_online">在线更新</string>
     <string name="share_to_friend">分享给朋友</string>
+    <string name="icon_show_setting_toast">首页将不显示关闭状态的图标</string>
+    <string name="gps">GPS</string>
+    <string name="camera">相机</string>
     <integer name="phone_length">11</integer>
 </resources>

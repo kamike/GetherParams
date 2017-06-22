@@ -26,6 +26,7 @@ public class SettingActivity extends BaseActivity {
     }
 
     public void onclickSettingIconSetting(View view) {
+        doStartOter(IconSettingActivity.class);
     }
 
     public void onclickSettingInit(View view) {
