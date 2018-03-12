@@ -1,22 +1,23 @@
 package com.pursuege.gether.android.ui.task;
 
 import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
 import com.pursuege.gether.android.R;
 import com.pursuege.gether.android.bean.ServiceIpBean;
 import com.pursuege.gether.android.ui.view.BlueProgressView;
 import com.pursuege.gether.android.utils.AssetsIOperate;
 import com.pursuege.gether.android.utils.NetworkUtils;
 import com.pursuege.gether.android.utils.TimeFormatUtils;
-import com.zhy.adapter.abslistview.CommonAdapter;
-import com.zhy.adapter.abslistview.ViewHolder;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -31,7 +32,7 @@ import java.util.ArrayList;
 public class ServiceIpTestView {
     public int urlIndex = 0;
     private ArrayList<ServiceIpBean> listIp;
-    private CommonAdapter adapterServiceIp;
+    private BaseQuickAdapter adapterServiceIp;
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void getUrlTime(ServiceIpBean time) {
@@ -61,16 +62,15 @@ public class ServiceIpTestView {
 
         TextView tvLastTime = (TextView) viewService.findViewById(R.id.task_item_last_time_tv);
         tvLastTime.setText(context.getText(R.string.last_test_time) + "");
-        ListView listViewContent = (ListView) viewService.findViewById(R.id.task_item_content_listview);
+        RecyclerView listViewContent = (RecyclerView) viewService.findViewById(R.id.task_item_content_listview);
         Button btn = (Button) viewService.findViewById(R.id.task_item_start_btn);
-
+        listViewContent.setLayoutManager(new LinearLayoutManager(context));
 
         listIp = AssetsIOperate.getAssetsData(context, "ServiceIpList.json", ServiceIpBean.class);
         adapterServiceIp =
-                new CommonAdapter<ServiceIpBean>(context, R.layout.view_item_txt_progress_loading, listIp) {
+                new BaseQuickAdapter<ServiceIpBean, BaseViewHolder>(R.layout.view_item_txt_progress_loading, listIp) {
                     @Override
-                    protected void convert(ViewHolder viewHolder, ServiceIpBean item, int position) {
-
+                    protected void convert(BaseViewHolder viewHolder, ServiceIpBean item) {
                         viewHolder.setText(R.id.test_progress_load_tv, item.ipName);
                         BlueProgressView blueProgressView = viewHolder.getView(R.id.test_progress_load_bp);
                         ImageView ivLoading = viewHolder.getView(R.id.test_progress_load_iv);
@@ -81,8 +81,8 @@ public class ServiceIpTestView {
                         } else {
                             ivLoading.clearAnimation();
                         }
-
                     }
+
                 };
         listViewContent.setAdapter(adapterServiceIp);
         if (NetworkUtils.isNetworkAvailable(context)) {
